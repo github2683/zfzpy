@@ -4,8 +4,7 @@ class test(scrapy.Spider):
     name = 'testspider'
     def start_request(self):
         urls = [
-            'https://www.baidu.com',
-            'http://localhost/action/json'
+            'http://www.baidu.com'
         ]
         for url in urls :
             yield scrapy.Request(url,callback=self.parse)

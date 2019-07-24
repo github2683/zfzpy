@@ -78,6 +78,7 @@ class ScrapyWebDownloaderMiddleware(object):
         # - or return a Request object
         # - or raise IgnoreRequest: process_exception() methods of
         #   installed downloader middleware will be called
+        
         return None
 
     def process_response(self, request, response, spider):
@@ -101,3 +102,12 @@ class ScrapyWebDownloaderMiddleware(object):
 
     def spider_opened(self, spider):
         spider.logger.info('Spider opened: %s' % spider.name)
+
+class ImgDownloadMiddleware(object):
+    def process_request(self,request,spider):
+        request.headers['referer'] ='https://www.mm131.net'
+        # referer = request.url
+        # print(referer)
+        # request.headers['referer'] ='https://www.mm131.net/'
+        # if referer:
+        #     request.headers['referer'] = referer

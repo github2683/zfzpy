@@ -88,3 +88,13 @@ ROBOTSTXT_OBEY = True
 #HTTPCACHE_DIR = 'httpcache'
 #HTTPCACHE_IGNORE_HTTP_CODES = []
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
+
+# 设置图片存储路径
+IMAGES_STORE = 'D:\meizi2'
+#启动pipeline中间件
+ITEM_PIPELINES = {
+   'scrapy_web.pipelines.MyImagesPipeline': 300,
+}
+DOWNLOADER_MIDDLEWARES = {
+   'scrapy_web.middlewares.ImgDownloadMiddleware': 1,
+}

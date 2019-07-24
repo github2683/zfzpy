@@ -3,6 +3,8 @@ import scrapy
 class test(scrapy.Spider):
     name = 'bz_spider'
    
+    # http://www.bangzhuanpingtai.com/yuehui1/
+    #result = response.xpath('//table //a[@role="button"]').xpath('@href').extract();    取所有城市的地址
     #arr = response.xpath('//table[1] //p[1]/text()').extract()
     # http://www.bangzhuanpingtai.com/Yuehui1/home/info?city=%E5%B9%BF%E5%B7%9E&page=4
     # start_urls  = [ 
@@ -23,7 +25,7 @@ class test(scrapy.Spider):
     # ]   
 
     start_urls  = [ 
-        'http://www.bangzhuanpingtai.com/yuehui1/home/info?city=%E5%93%88%E5%B0%94%E6%BB%A8'
+        'http://www.bangzhuanpingtai.com/yuehui1/home/info?city=%E6%88%90%E9%83%BD'
         ]
     baseUrl = start_urls[0]
 
@@ -37,7 +39,7 @@ class test(scrapy.Spider):
         data = response.url + '\n'
         for key in result:
             data += key + '\n'
-        filename = 'C:\\Users\\zfz\Documents\\zfz\\bz_spider_harebin.txt'  
+        filename = 'C:\\Users\\zfz\Documents\\zfz\\bz_spider_chengdu.txt'  
         with open(filename, 'a') as f:        #python文件操作，不多说了；
             f.write(data)             #刚才下载的页面去哪里了？response.body就代表了刚才下载的页面！
         self.log('保存文件: %d' % test.count)
